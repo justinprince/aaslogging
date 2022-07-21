@@ -15,7 +15,9 @@ namespace AzureLoggingDemo.Web.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger<HomeController>();
+            _logger.LogWarning("This is a WARNING message");
+            _logger.LogInformation("This is an INFORMATION Message");
         }
 
         public IActionResult Index()
